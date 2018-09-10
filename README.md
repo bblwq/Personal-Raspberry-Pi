@@ -1,4 +1,4 @@
-# My Raspberry Pi Web Server Setup Guide
+# My Home Raspberry Pi Setup Guide
 ## Components
 1. Apache HTTP Server
 2. OpenVPN Access Server
