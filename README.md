@@ -1,11 +1,12 @@
 # My Home Raspberry Pi Setup Guide
 ## Components
 1. Apache HTTP Server
-2. OpenVPN Access Server
-3. Python Environment
-4. Kodi Media Player
-5. Apache Tomcat
-6. Fail2ban
+2. MySQL RDBMS
+3. OpenVPN Access Server
+4. Python Environment
+5. Kodi Media Player
+6. Apache Tomcat
+7. Fail2ban
 
 ## Port Forwarding
 | Port Number | Description |
