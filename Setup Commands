@@ -1,0 +1,112 @@
+sudo apt-get upgrade
+sudo apt-get update
+sudo apt-get dist-upgrade
+
+sudo apt-get install apache2 -y
+sudo apt-get install apache2 apache2-utils
+
+# Move all files to the right directories.
+
+sudo apt-get install php libapache2-mod-php -y
+sudo chmod +x /usr/lib/cgi-bin/normalise.pl
+sudo htpasswd -c /etc/apache2/.htpasswd ****
+####
+# Password: ****
+####
+
+sudo nano /etc/apache2/sites-available/000-default.conf
+####
+ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
+<Directory "/usr/lib/cgi-bin">
+    AddHandler cgi-script .cgi .pl
+    Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+</Directory>
+
+<Directory "/var/www/html">
+    RewriteEngine on
+    RewriteRule ^$ /Home [L]
+    ErrorDocument 404 /404.html
+    AuthType Basic
+    AuthName "Restricted Content"
+    AuthUserFile /etc/apache2/.htpasswd
+</Directory>
+
+<Directory "/var/www/html/Private">
+    Require valid-user
+</Directory>
+####
+
+sudo apt-get install libcgi-pm-perl
+sudo apt-get install libxml-simple-perl
+a2enmod cgid
+sudo systemctl restart apache2
+
+sudo apt-get install python3-pip
+sudo apt-get install python-pip
+sudo apt-get install python-bs4
+sudo apt-get install python3-bs4
+sudo pip install twilio
+sudo raspi-config
+
+sudo apt-get install mysql-server
+sudo mysql_secure_installation
+
+sudo apt-get install phpmyadmin
+sudo nano /etc/apache2/apache2.conf
+
+####
+# Include /etc/phpmyadmin/apache.conf
+####
+
+sudo service apache2 restart
+curl -L https://install.pivpn.io|bash
+pivpn -a -n **** -p ****
+
+####
+#Crontab
+#*/10 * * * * python /home/pi/python_scripts/OINP.py
+#0 0 * * * sudo reboot
+#10 0 * * * sudo apt-get upgrade && sudo apt-get update && sudo apt-get dist-upgrade
+####
+
+sudo apt-get install kodi
+sudo nano /boot/config.txt
+
+##EOF##
+# gpu_mem=256
+# start_x=1
+####
+
+sudo nano /home/pi/.config/lxsession/LXDE-pi/autostart
+
+##EOF##
+# @kodi
+####
+
+sudo apt-get install vlc
+sudo apt-get install xrdp
+
+sudo a2enmod rewrite
+systemctl restart apache2
+
+sudo apt-get install tomcat8
+sudo apt-get install tomcat8-admin
+sudo apt-get install tomcat8-examples
+sudo apt-get install tomcat8-docs
+sudo nano /etc/tomcat8/tomcat-users.xml
+
+####
+  <role rolename="manager-gui"/>
+  <role rolename="admin-gui"/>
+  <user username="****" password="****" roles="manager-gui"/>
+  <user username="****" password="****" roles="admin-gui"/>
+####
+
+sudo service tomcat8 restart
+
+sudo apt-get install fail2ban
+sudo nano /etc/fail2ban/jail.d/defaults-debian.conf
+####
+# [apache-auth]
+# enabled = true
+####
