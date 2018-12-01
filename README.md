@@ -16,3 +16,4 @@
 | 443 | HTTPS |
 | 8080 | Tomcat |
 | 1194 | OpenVPN |
+| 5000 | Flask |
